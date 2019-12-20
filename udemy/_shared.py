@@ -41,6 +41,11 @@ from ._compat import (
 early_py_version = sys.version_info[:2] < (2, 7)
 
 
+def update_modification_time(file):
+    mtime = time.time()
+    os.utime(file, (mtime, mtime))
+
+
 class Downloader(object):
 
     def __init__(self):
@@ -128,10 +133,12 @@ class Downloader(object):
         if filepath and filepath.endswith('.vtt'):
             filepath_vtt2srt = filepath.replace('.vtt', '.srt')
             if os.path.isfile(filepath_vtt2srt):
+                update_modification_time(filepath_vtt2srt)
                 retVal = {"status" : "True", "msg" : "already downloaded"}
                 return retVal
 
         if os.path.isfile(filepath):
+            update_modification_time(filepath)
             retVal = {"status": "True", "msg": "already downloaded"}
             return retVal
 
@@ -443,6 +450,7 @@ class UdemyLectures(object):
             filename += ".html"
 
         if os.path.isfile(filename):
+            update_modification_time(filename)
             retVal = {"status" : "True", "msg" : "already downloaded"}
             return retVal
         
