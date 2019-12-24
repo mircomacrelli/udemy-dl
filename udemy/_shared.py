@@ -108,6 +108,7 @@ class Downloader(object):
             retVal = {'status' : 'True', 'msg' : 'download'}
             f.close()
 
+        update_modification_time(filename)
         return retVal
 
     def download(self, filepath="", unsafe=False, quiet=False, callback=lambda *x: None):
