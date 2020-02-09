@@ -227,6 +227,7 @@ class Downloader(object):
                         reason = response.reason
                         retVal = {
                             "status": "False", "msg": "Udemy returned HTTP Code %s: %s" % (code, reason)}
+                    response.connection.close()
                     break
         except KeyboardInterrupt as error:
             raise error
