@@ -7,6 +7,10 @@
 # udemy-dl
 **A cross-platform python based utility to download courses from udemy for personal offline use.**
 
+### Important Note:
+ - Don't share your credentials until the issue is properly tagged/labeled with **account-needed**.
+ - Owner of this repository is not responsible for any miss use if you share your credentials with strangers.
+
 [![udemy-dl-0-5.png](https://s26.postimg.cc/67x3wfak9/udemy-dl-0-5.png)](https://postimg.cc/image/s73ijmred/)
 
 
@@ -38,6 +42,14 @@
 - Download lectures containing unsafe *unicode* characters in title/name (option: `--unsafe`).
 
 ## ***How to login with cookie***
+
+The `cookies.txt` file should have the following simple format, eg:
+
+```ini
+access_token=JKU9QNs2IQDBKoYKvOBclSPXN97baf32o1Jo2L9vX
+```
+
+### Finding your access token value
 
  - ***Firefox*** users : [guide by @01ttouch](https://github.com/r0oth3x49/udemy-dl/issues/389#issuecomment-491903900)
  - ***Chrome*** users : [guide by @01ttouch](https://github.com/r0oth3x49/udemy-dl/issues/389#issuecomment-492569372)
@@ -176,3 +188,14 @@ Example:
   python udemy-dl.py  COURSE_URL -k cookies.txt
   python udemy-dl.py -u user@domain.com -p p4ssw0rd COURSE_URL
 </code></pre>
+
+
+
+## ***Todo (for next release)***
+ - Restructure code.
+ - add proper logging for information and errors.
+ - add support to download multiple courses from file
+ - add support to download just EN subtitles by default
+ - add switch to keep vtt subtitles as well.
+ - Add support to download 1080p if available. (most waited feature)
+ - Add support to download course on a flaky connection.
