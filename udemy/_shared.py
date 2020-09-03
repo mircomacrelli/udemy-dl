@@ -212,6 +212,7 @@ class Downloader(object):
 
                             if callback:
                                 callback(total, *progress_stats)
+                response.close()
             if not response.ok:
                 code = response.status_code
                 reason = response.reason
@@ -452,6 +453,7 @@ class UdemyLectures(object):
 
         if os.path.isfile(filename):
             retVal = {"status" : "True", "msg" : "already downloaded"}
+            update_modification_time(filename)
             return retVal
         
         try:
